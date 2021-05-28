@@ -29,6 +29,7 @@ class CadastroCidadeTest {
 
 	@BeforeEach
 	public void setUp() {
+		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;
 		RestAssured.basePath = "/cidades";
 
@@ -55,7 +56,7 @@ class CadastroCidadeTest {
 			.param("nome", "São Paulo")
 			.accept(ContentType.JSON)
 		.when()
-			.get("/por-nome")
+			.get()
 		.then()
 			.statusCode(HttpStatus.OK.value())
 			.body("", Matchers.hasSize(1));
@@ -67,7 +68,7 @@ class CadastroCidadeTest {
 			.param("estado", "SP")
 			.accept(ContentType.JSON)
 		.when()
-			.get("/por-estado")
+			.get()
 		.then()
 			.statusCode(HttpStatus.OK.value())
 			.body("", Matchers.hasSize(1));

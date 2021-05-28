@@ -66,7 +66,7 @@ class CadastroClienteTest {
 			.param("nome", "Joao")
 			.accept(ContentType.JSON)
 		.when()
-			.get("/por-nome")
+			.get()
 		.then()
 			.statusCode(HttpStatus.OK.value()).body("", Matchers.hasSize(1));
 	}
@@ -103,7 +103,7 @@ class CadastroClienteTest {
 			.accept(ContentType.JSON)
 			.contentType(ContentType.JSON)
 		.when()
-			.put("/{clienteId}")
+			.patch("/{clienteId}")
 		.then()
 			.statusCode(HttpStatus.OK.value()).body("nome", Matchers.equalTo("Dino da Silva Sauro"));
 	}

@@ -1,4 +1,4 @@
-package br.com.uol.api.model.input;
+package br.com.uol.api.dto;
 
 import javax.validation.constraints.NotBlank;
 
@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ClienteNomeInput {
+public class ClienteDTO {
 	
 	@NotBlank
 	private String nome;

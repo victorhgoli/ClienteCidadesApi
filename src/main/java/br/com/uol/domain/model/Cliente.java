@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,13 +29,16 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	@Column(nullable = false)
 	private String nome;
 
+	@NotNull
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private SexoCliente sexo;
 	
+	@NotNull
 	@Column(nullable = false)
 	private LocalDate dataNascimento;
 

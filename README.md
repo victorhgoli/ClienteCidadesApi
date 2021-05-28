@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-Aplicação de testes para vaga na compasso UOL
+Aplicação que expoe endPoints para as entidades de Cidade e Clientes na compasso UOL
 (https://github.com/recrutamento-compasso/spring-boot-interview ).
 
 # Tecnologias utilizadas

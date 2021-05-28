@@ -1,13 +1,12 @@
-package br.com.uol.api.model;
+package br.com.uol.domain.filter;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CidadeModel {
+public class CidadeFilter {
 	
-	private Long id;
 	private String nome;
 	private String estado;
 
