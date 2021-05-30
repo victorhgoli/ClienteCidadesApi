@@ -5,6 +5,9 @@
 
 Exemplicar um crud das entidades e Cidade e Clientes.
 
+![image](https://user-images.githubusercontent.com/1088620/120122631-5cb0d700-c180-11eb-9dff-212488c6bd77.png)
+
+
 # Tecnologias utilizadas
 - Java
 - Spring Boot
