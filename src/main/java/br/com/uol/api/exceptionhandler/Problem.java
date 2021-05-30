@@ -3,6 +3,7 @@ package br.com.uol.api.exceptionhandler;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -23,6 +24,7 @@ public class Problem {
     private Integer status;
 	
 	@ApiModelProperty(example = "2019-11-10T18:00:00Z")
+	@JsonFormat(pattern = "")
 	private OffsetDateTime timestamp;
 	
 	@ApiModelProperty(example = "https://testeCompasso.com.br/dados-invalidos")

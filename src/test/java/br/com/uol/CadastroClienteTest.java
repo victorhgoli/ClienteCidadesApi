@@ -19,6 +19,7 @@ import br.com.uol.domain.model.Cliente;
 import br.com.uol.domain.model.SexoCliente;
 import br.com.uol.domain.repository.CidadeRepository;
 import br.com.uol.domain.repository.ClienteRepository;
+import br.com.uol.util.DatabaseCleaner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
@@ -34,6 +35,9 @@ class CadastroClienteTest {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
+	@Autowired
+	private DatabaseCleaner databaseCleaner;
+	
 	private Cidade cidadeSaoPaulo;
 	private Cliente clienteJoao;
 	
@@ -43,12 +47,13 @@ class CadastroClienteTest {
 		RestAssured.port = port;
 		RestAssured.basePath = "/clientes";
 
+		databaseCleaner.clearTables();
 		prepararDados();
 	}
 
 	@Test
 	public void deveRetornarStatus201_QuandoCadastrarCliente() {
-		String clienteJson = "{\"nome\":\"Tiao\",\"sexo\": \"MASCULINO\", \"dataNascimento\": \"1990-08-22\", \"cidade\":{\"id\": " + cidadeSaoPaulo.getId()+ "}}";
+		String clienteJson = "{\"nome\":\"Tiao\",\"sexo\": \"MASCULINO\", \"dataNascimento\": \"1990-08-22\", \"cidade\":{\"id\": "+ cidadeSaoPaulo.getId()+"}}";
 		
 		given()
 			.body(clienteJson)
@@ -94,8 +99,8 @@ class CadastroClienteTest {
 	}
 	
 	@Test
-	public void deveValidarNomeCliente_QuandoAlterarrNome() {
-		String body = "{\"nome\": \"Dino da Silva Sauro\"}";
+	public void deveValidarNomeCliente_QuandoAlterarNome() {
+		String body = "{\"nome\":\"Dino da Silva Sauro\",\"sexo\": \"MASCULINO\", \"dataNascimento\": \"1990-08-22\", \"cidade\":{\"id\": "+ cidadeSaoPaulo.getId()+"}}";
 		
 		given()
 			.pathParam("clienteId", clienteJoao.getId())
@@ -103,9 +108,10 @@ class CadastroClienteTest {
 			.accept(ContentType.JSON)
 			.contentType(ContentType.JSON)
 		.when()
-			.patch("/{clienteId}")
+			.put("/{clienteId}")
 		.then()
-			.statusCode(HttpStatus.OK.value()).body("nome", Matchers.equalTo("Dino da Silva Sauro"));
+			.statusCode(HttpStatus.OK.value())
+			.body("nome", Matchers.equalTo("Dino da Silva Sauro"));
 	}
 
 	private void prepararDados() {

@@ -1,9 +1,9 @@
-# Teste Compasso
+# CRUD Clientes e Cidades
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/victorhgoli/TesteCompasso/blob/master/LICENSE) 
 
-# Sobre o projeto
+# Descrição do Projeto
 
-Aplicação que expoe endPoints para as entidades de Cidade e Clientes
+Exemplicar um crud das entidades e Cidade e Clientes.
 
 # Tecnologias utilizadas
 - Java
@@ -15,7 +15,7 @@ Aplicação que expoe endPoints para as entidades de Cidade e Clientes
 - JUnit
 - RestAssured
 
-# Como executar o projeto
+# Como executar a Aplicação
 
 Pré-requisitos: Java 8
 
@@ -23,13 +23,18 @@ Pré-requisitos: Java 8
 # clonar repositório
 git clone https://github.com/victorhgoli/TesteCompasso.git
 
+# Acesse a pasta do projeto
+cd TesteCompasso
+
 # executar o projeto
-./mvnw spring-boot:run
+mvnw spring-boot:run
 
 # testar o projeto
-mvn test
-```
+mvnw test
 
+
+```
+Abra seu navegador e acesse a documentação OpenAPI http://localhost:8080/swagger-ui/index.html
 
 # Autor
 

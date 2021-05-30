@@ -54,22 +54,4 @@ public class CadastroClienteService {
 	public void excluir(Long cidadeId) {
 		clienteRepository.deleteById(cidadeId);
 	}
-
-	@Transactional
-	public Cliente atualizarParcial(Map<String, Object> dadosOrigem, Cliente clienteDestino) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		Cliente clienteOrigem = objectMapper.convertValue(dadosOrigem, Cliente.class);
-
-		dadosOrigem.forEach((nomePropriedade, valorPropriedade) -> {
-			Field field = ReflectionUtils.findField(Cliente.class, nomePropriedade);
-			field.setAccessible(true);
-
-			Object novoValor = ReflectionUtils.getField(field, clienteOrigem);
-
-			ReflectionUtils.setField(field, clienteDestino, novoValor);
-		});
-
-		return salvar(clienteDestino);
-	}
-
 }

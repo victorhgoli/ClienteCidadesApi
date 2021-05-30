@@ -16,5 +16,9 @@ public class ClienteRequestDTODisassembler {
 	public Cliente toDomainObject(ClienteRequestDTO clienteDto) {
 		return modelMapper.map(clienteDto, Cliente.class);
 	}
+	
+	public void copyToDomainObject(ClienteRequestDTO clienteRequestDTO, Cliente cliente) {
+		modelMapper.map(clienteRequestDTO, cliente);
+	}
 
 }

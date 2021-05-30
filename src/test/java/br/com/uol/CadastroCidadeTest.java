@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 
 import br.com.uol.domain.model.Cidade;
 import br.com.uol.domain.repository.CidadeRepository;
+import br.com.uol.util.DatabaseCleaner;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
@@ -24,6 +25,9 @@ class CadastroCidadeTest {
 
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private DatabaseCleaner databaseCleaner;
 
 	private Cidade cidadeSaoPaulo;
 
@@ -32,7 +36,8 @@ class CadastroCidadeTest {
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;
 		RestAssured.basePath = "/cidades";
-
+		
+		databaseCleaner.clearTables();
 		prepararDados();
 	}
 
@@ -75,8 +80,6 @@ class CadastroCidadeTest {
 	}
 
 	private void prepararDados() {
-		cidadeRepository.deleteAll();
-
 		cidadeSaoPaulo = new Cidade();
 		cidadeSaoPaulo.setEstado("SP");
 		cidadeSaoPaulo.setNome("São Paulo");

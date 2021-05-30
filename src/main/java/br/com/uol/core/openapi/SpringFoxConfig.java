@@ -5,25 +5,16 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.fasterxml.classmate.ResolvedType;
 import com.fasterxml.classmate.TypeResolver;
 
 import br.com.uol.api.exceptionhandler.Problem;
-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ModelSpecificationBuilder;
-import springfox.documentation.builders.QualifiedModelNameBuilder;
-import springfox.documentation.builders.RepresentationBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseBuilder;
 import springfox.documentation.oas.annotations.EnableOpenApi;
-import springfox.documentation.schema.ModelKeyBuilder;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
@@ -68,10 +59,6 @@ public class SpringFoxConfig {
 				new ResponseBuilder()
 					.code(String.valueOf(HttpStatus.BAD_REQUEST.value()))
 					.description("Requisicao inválida (erro do cliente)")
-					//ver model do problema
-				//	.representation(MediaType.APPLICATION_JSON).apply(r -> r.1')
-						//.apply(r -> r.model(m -> m.referenceModel(r -> r.key(null))))
-						//.apply(r -> r.model(m -> m.compoundModel(ref -> ref.modelKey(k -> k.viewDiscriminator(new TypeResolver().resolve(Problem.class)).qualifiedModelName(q -> q.name("Problema"))))))
 					.build(),
 				new ResponseBuilder()
 					.code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
