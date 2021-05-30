@@ -32,12 +32,18 @@ cd TesteCompasso
 # executar o projeto
 mvnw spring-boot:run
 
-# testar o projeto
-mvnw test
-
 
 ```
 Abra seu navegador e acesse a documentação OpenAPI http://localhost:8080/swagger-ui/index.html
+
+# Como testar a Aplicação
+
+
+```bash
+# testar o projeto
+mvnw test
+
+```
 
 # Autor
 
