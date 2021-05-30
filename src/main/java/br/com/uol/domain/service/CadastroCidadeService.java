@@ -28,7 +28,7 @@ public class CadastroCidadeService {
 		return cidadeRepository.save(cidade);
 	}
 
-	public List<Cidade> filtrarCidade(CidadeFilter filter) {
+	public List<Cidade> pesquisar(CidadeFilter filter) {
 		return cidadeRepository.findAll(CidadeSpecs.filter(filter));
 	}
 

@@ -3,7 +3,8 @@
 
 # Sobre o projeto
 
-Aplicação que expoe endPoints para as entidades de Cidade e Clientes
+Aplicação que expoe endPoints para as entidades de Cidade e Clientes na compasso UOL
+(https://github.com/recrutamento-compasso/spring-boot-interview ).
 
 # Tecnologias utilizadas
 - Java

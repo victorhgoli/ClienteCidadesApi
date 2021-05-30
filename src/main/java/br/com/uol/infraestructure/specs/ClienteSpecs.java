@@ -17,7 +17,7 @@ public class ClienteSpecs {
 			List<Predicate> predicates = new ArrayList<Predicate>();
 
 			if (filter.getNome() != null) {
-				predicates.add(builder.equal(root.get("nome"), filter.getNome()));
+				predicates.add(builder.equal(builder.upper(root.get("nome")), filter.getNome().toUpperCase()));
 			}
 			
 			return builder.and(predicates.toArray(new Predicate[0]));

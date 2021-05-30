@@ -19,11 +19,9 @@ public class Cidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
 	@Column(nullable = false)
 	private String nome;
 	
-	@NotEmpty
 	@Column(nullable = false)
 	private String estado;
 

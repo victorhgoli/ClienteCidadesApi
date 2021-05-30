@@ -29,16 +29,13 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotEmpty
 	@Column(nullable = false)
 	private String nome;
 
-	@NotNull
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private SexoCliente sexo;
 	
-	@NotNull
 	@Column(nullable = false)
 	private LocalDate dataNascimento;
 
