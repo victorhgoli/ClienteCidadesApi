@@ -127,6 +127,7 @@
 					<excludes>
 						<exclude>**/exceptionhandler/**/*</exclude>
 						<exclude>**/domain/exception/**/*</exclude>
+						<exclude>**/domain/model/**/*</exclude>
 						<exclude>**/CompassApplication.class</exclude>
 					</excludes>
 				</configuration>
