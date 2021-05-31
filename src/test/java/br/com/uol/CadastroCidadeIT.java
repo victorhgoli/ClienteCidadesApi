@@ -18,7 +18,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class CadastroCidadeTest {
+class CadastroCidadeIT {
 
 	@LocalServerPort
 	private int port;

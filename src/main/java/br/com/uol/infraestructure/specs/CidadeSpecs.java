@@ -11,6 +11,8 @@ import br.com.uol.domain.filter.CidadeFilter;
 import br.com.uol.domain.model.Cidade;
 
 public class CidadeSpecs {
+	
+	private CidadeSpecs() {}
 
 	public static Specification<Cidade> filter(CidadeFilter filter) {
 		return (root, query, builder) -> {

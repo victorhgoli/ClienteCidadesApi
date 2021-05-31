@@ -11,6 +11,8 @@ import br.com.uol.domain.filter.ClienteFilter;
 import br.com.uol.domain.model.Cliente;
 
 public class ClienteSpecs {
+	
+	private ClienteSpecs() {}
 
 	public static Specification<Cliente> filter(ClienteFilter filter) {
 		return (root, query, builder) -> {

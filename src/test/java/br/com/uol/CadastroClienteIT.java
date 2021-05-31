@@ -24,7 +24,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class CadastroClienteTest {
+class CadastroClienteIT {
 
 	@LocalServerPort
 	private int port;
@@ -64,7 +64,31 @@ class CadastroClienteTest {
 		.then()
 			.statusCode(HttpStatus.CREATED.value());
 	}
+	
+	@Test
+	public void deveRetornarStatus400_QuandoCadastrarClienteComCidadeInvalida() {
+		String clienteJson = "{\"nome\":\"Tiao\",\"sexo\": \"MASCULINO\", \"dataNascimento\": \"1990-08-22\", \"cidade\":{\"id\": 99}}";
+		
+		given()
+		.body(clienteJson)
+		.contentType(ContentType.JSON)
+		.accept(ContentType.JSON)
+		.when()
+		.post()
+		.then()
+		.statusCode(HttpStatus.BAD_REQUEST.value());
+	}
 
+	@Test
+	public void deveRetornarUmCliente_QuandoConsultarSemParametros() {
+		given()
+		.accept(ContentType.JSON)
+		.when()
+		.get()
+		.then()
+		.statusCode(HttpStatus.OK.value()).body("", Matchers.hasSize(1));
+	}
+	
 	@Test
 	public void deveRetornarUmCliente_QuandoConsultarPorNome() {
 		given()
@@ -86,6 +110,17 @@ class CadastroClienteTest {
 		.then()
 			.statusCode(HttpStatus.OK.value())
 			.body("nome", equalTo(clienteJoao.getNome()));
+	}
+	
+	@Test
+	public void deveRetornar404_QuandoConsultarClientePorIdInvalido() {
+		given()
+		.pathParam("clienteId", 9)
+		.accept(ContentType.JSON)
+		.when()
+		.get("/{clienteId}")
+		.then()
+		.statusCode(HttpStatus.NOT_FOUND.value());
 	}
 	
 	@Test

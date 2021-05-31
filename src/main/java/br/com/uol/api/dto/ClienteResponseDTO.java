@@ -29,6 +29,9 @@ public class ClienteResponseDTO {
 	
 	@ApiModelProperty(value = "Data de nascimento do cliente", example = "2019-10-08", dataType = "Date")
 	private LocalDate dataNascimento;
+	
+	@ApiModelProperty(value = "Idade do Cliente", example = "40")
+	private int idade;
 
 	private CidadeResponseDTO cidade;
 

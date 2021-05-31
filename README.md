@@ -36,12 +36,12 @@ mvnw spring-boot:run
 ```
 Abra seu navegador e acesse a documentação OpenAPI http://localhost:8080/swagger-ui/index.html
 
-# Como testar a Aplicação
+# Como rodar os testes de integração da Aplicação
 
 
 ```bash
 # testar o projeto
-mvnw test
+mvnw verify
 
 ```
 
