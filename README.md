@@ -1,6 +1,6 @@
 # CRUD Clientes e Cidades
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/victorhgoli/TesteCompasso/blob/master/LICENSE) 
-[![codecov](https://codecov.io/gh/victorhgoli/TesteCompasso/branch/master/graph/badge.svg?token=45EOIRQCR5)](https://codecov.io/gh/victorhgoli/TesteCompasso)
+[![codecov](https://codecov.io/gh/victorhgoli/TesteCompasso/branch/master/graph/badge.svg?token=e9820f4c-43d2-4b7f-bcee-1bc8e5082cdb)](https://codecov.io/gh/victorhgoli/TesteCompasso)
 
 # Descrição do Projeto
 
