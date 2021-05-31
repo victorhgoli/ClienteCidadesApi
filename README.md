@@ -13,6 +13,7 @@ Exemplicar um crud das entidades e Cidade e Clientes.
 - Java
 - Spring Boot
 - String Data JPA
+- SpringFox (OpenAPI)
 - JPA / Hibernate
 - Maven
 - Banco de dados H2
