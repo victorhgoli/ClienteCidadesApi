@@ -17,6 +17,7 @@ Exemplicar um crud das entidades e Cidade e Clientes.
 - Banco de dados H2
 - JUnit
 - RestAssured
+- Jacoco
 
 # Como executar a Aplicação
 
